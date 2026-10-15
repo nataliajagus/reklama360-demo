@@ -82,6 +82,7 @@ const nav = $('#nav');
 const burger = $('#burger');
 const setMenu = open => {
   nav.classList.toggle('open', open);
+  document.documentElement.classList.toggle('menu-open', open);
   burger.setAttribute('aria-expanded', open);
   burger.setAttribute('aria-label', open ? 'Zamknij menu' : 'Otwórz menu');
 };
