@@ -1033,3 +1033,12 @@ html.menu-open{overflow:hidden}
 /* szybka wycena: osobny pas pod hero (pod obrazkiem) */
 .quick-row{padding-top:clamp(28px,4vw,52px)}
 @media (max-width:980px){.quick-row{padding-top:18px}.hero-art{margin-bottom:0}}
+/* mobile/tablet: pole hero = kwadrat dopasowany do pierścienia rejestru (bez nachodzenia na kolejne elementy) */
+@media (max-width:980px){
+  .hero-art{aspect-ratio:1;min-height:0;width:min(100%,520px);margin:12px auto 0}
+  .reg{width:100%;max-width:none}
+  .frame{width:62%}
+  .cmyk{left:auto;right:3%}
+  .floor{left:2%;bottom:9%}
+  .quick-row{padding-top:22px}
+}
