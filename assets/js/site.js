@@ -347,4 +347,21 @@ function burst() {
   });
 })();
 
+
+/* =========================================================
+   OŚ CZASU — linia wypełnia się przy przewijaniu, węzły i karty aktywują się po kolei
+   ========================================================= */
+(() => {
+  const tl = $('#timeline'); if (!tl) return;
+  const items = $$('.tl-i', tl);
+  const upd = () => {
+    const r = tl.getBoundingClientRect(), mid = innerHeight * .55;
+    tl.style.setProperty('--tl-p', clamp(mid - r.top, 0, r.height) + 'px');
+    items.forEach(li => { const d = $('.tl-dot', li).getBoundingClientRect(); li.classList.toggle('on', reduce || d.top + d.height / 2 < mid + 40); });
+  };
+  let raf = 0;
+  const tick = () => { if (!raf) raf = requestAnimationFrame(() => { raf = 0; upd(); }); };
+  addEventListener('scroll', tick, { passive: true }); addEventListener('resize', tick);
+  upd();
+})();
 })();
